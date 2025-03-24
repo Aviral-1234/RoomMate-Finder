@@ -4,11 +4,11 @@ import logo from "../assets/Rom.png"
 
 const navBar = () => {
   return (
-    <div className='w-full '>
+    <div className='w-full'>
       <nav className='fixed top-0 left-0 w-full bg-black shadow-2xl p-5 flex justify-between items-center z-50'>
       <img 
-  className='h-[40px] rounded-md mt-2 transition-transform duration-300 
-             hover:scale-105 hover:shadow-[0_0_15px_5px_rgba(253,224,71,0.6)]' 
+  className='h-[40px] rounded-md mt-2 transition-transform transition-shadow duration-300 
+             hover:scale-105 hover:shadow-[0_0_15px_5px_rgba(253,224,71,0.6)] cursor-pointer' 
   src={logo} 
   alt="roomMate finder" 
 />

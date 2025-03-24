@@ -16,7 +16,7 @@ const HeroSection = () => {
 <div className="bg-zinc-700 text-white rounded-lg p-6 flex items-center justify-between relative shadow-lg">
   <div className='bg-zinc-700'>
     <h2 className="bg-zinc-700 text-xl font-semibold text-white mb-4">Need a roommate?</h2>
-    <button className="bg-[#2a9d8f] text-white px-4 py-2 rounded-md flex items-center">
+    <button className="bg-[#2a9d8f] text-white px-4 py-2 rounded-md flex items-center transition-transform duration-300 hover:scale-105">
       List your room 
       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
         <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -38,7 +38,7 @@ const HeroSection = () => {
 <div className="bg-zinc-700 rounded-lg p-6 flex items-center justify-between relative shadow-lg">
   <div className='bg-zinc-700'>
     <h2 className="text-xl font-semibold text-white bg-zinc-700 mb-4">Looking for a place?</h2>
-    <button className="bg-[#f7971d] text-white px-4 py-2 rounded-md flex items-center">
+    <button className="bg-[#f7971d] text-white px-4 py-2 rounded-md flex items-center transition-transform duration-300 hover:scale-105">
       View listed rooms
       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
         <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />

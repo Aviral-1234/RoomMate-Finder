@@ -3,7 +3,7 @@ import alexPhoto from '../assets/download.jpg'
 
 const RoomCard = () => {
   return (
-    <div className="cardbody bg-zinc-800 max-w-sm rounded-2xl overflow-hidden shadow-lg border border-zinc-500 
+    <div className="cardbody cursor-pointer bg-zinc-800 max-w-sm rounded-2xl overflow-hidden shadow-lg border border-zinc-500 
     transition-transform duration-300 hover:shadow-xl hover:scale-105">
     {/* Room Image */}
       <div className="relative">
