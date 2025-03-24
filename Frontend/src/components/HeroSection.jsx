@@ -1,0 +1,62 @@
+import React from 'react';
+import roomie from '../assets/home-roomie.svg'
+import homie from '../assets/home-homie.svg'
+
+const HeroSection = () => {
+  return (
+    <div className="pt-[90px] w-full bg-black py-12">
+      
+      <div className="bg-black w-full max-w-7xl mx-auto bg-black px-4 text-center text-white">
+        <h1 className="bg-black text-white text-4xl font-bold mb-3">Find your Room Mate Now</h1>
+        <p className="bg-black text-xl mb-8">list, search & communicate</p>
+        
+        <div className="flex flex-col md:flex-row justify-center gap-6 bg-black">
+         {/* Need a roommate card */}
+
+<div className="bg-zinc-700 text-white rounded-lg p-6 flex items-center justify-between relative shadow-lg">
+  <div className='bg-zinc-700'>
+    <h2 className="bg-zinc-700 text-xl font-semibold text-white mb-4">Need a roommate?</h2>
+    <button className="bg-[#2a9d8f] text-white px-4 py-2 rounded-md flex items-center">
+      List your room 
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+      </svg>
+    </button>
+  </div>
+  {/* <div className="bg-zinc-700 w-24 h-24">
+    <img src={roomie} alt="Person illustration" className="bg-zinc-700 w-full h-full object-contain" />
+  </div>
+   */}
+  <div className="bg-zinc-700 w-24 h-24">
+  </div>
+  <div className='w-30 h-40 absolute ml-44 bg-transparent group'>
+<img src={roomie} alt="Person illustration" className="bg-transparent w-full h-full object-contain transition-transform duration-300 group-hover:-translate-y-2" />
+</div>
+</div>
+
+{/* Looking for a place card */}
+<div className="bg-zinc-700 rounded-lg p-6 flex items-center justify-between relative shadow-lg">
+  <div className='bg-zinc-700'>
+    <h2 className="text-xl font-semibold text-white bg-zinc-700 mb-4">Looking for a place?</h2>
+    <button className="bg-[#f7971d] text-white px-4 py-2 rounded-md flex items-center">
+      View listed rooms
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+      </svg>
+    </button>
+  </div>
+  <div className="w-24 h-24 bg-zinc-700">
+  </div>
+  <div className="w-30 h-40 absolute ml-44 bg-transparent group">
+  <img src={homie} alt="House illustration" className="bg-transparent w-full h-full object-contain transition-transform duration-300 group-hover:-translate-y-2" />
+  </div>
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;
