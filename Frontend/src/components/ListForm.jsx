@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-import AmenitiesSelector from './AmenitiesSelector'
+import AmenitiesSelector from './mini components/AmenitiesSelector'
 
 const ListForm = () => {
 
