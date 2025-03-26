@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
 
@@ -23,9 +24,10 @@ return (
                     <input value={password} onChange={(e)=>{setPassword(e.target.value)}} className="bg-zinc-700 mt-2 w-full p-2 rounded-md outline-none" placeholder='Enter password' type="password"/> 
                     </div>
                     <div className="w-full flex justify-center bg-zinc-900">
-                    <input type="submit" value="Create Profile" className="bg-white text-black font-bold mt-10 px-10 py-3 rounded-md transition-tramsform hover:bg-transparent hover:text-white duration-300 hover:shadow-xl hover:scale-105 hover:border cursor-pointer" />
+                    <input type="submit" value="Login" className="bg-white text-black font-bold mt-10 px-10 py-3 rounded-md transition-tramsform hover:bg-transparent hover:text-white duration-300 hover:shadow-xl hover:scale-105 hover:border cursor-pointer" />
                     </div>
             </form>
+            <h3 className='bg-zinc-900 mt-2 text-lg'>if you are new here then, <Link to={'/register'}> <span className='bg-zinc-900 text-blue-500 cursor-pointer hover:underline text-lg'>Register</span></Link></h3>
         </div>
     </div>
   )

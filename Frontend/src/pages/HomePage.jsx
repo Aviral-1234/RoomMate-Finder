@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import NavBar from '../components/navBar';
 import RoomCard from '../components/Card';
 import HeroSection from '../components/HeroSection';
@@ -13,13 +15,13 @@ const HomePage = () => {
       <div className="w-full max-w-7xl px-2 py-7">
        
         <div className="p-5  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          <RoomCard />
-          <RoomCard />
-          <RoomCard />
-          <RoomCard />
-          <RoomCard />
-          <RoomCard />
-          <RoomCard />
+        <Link to={'/listingview/69'}><RoomCard /></Link>
+        <Link to={'/listingview/69'}><RoomCard /></Link>
+        <Link to={'/listingview/69'}><RoomCard /></Link>
+        <Link to={'/listingview/69'}><RoomCard /></Link>
+        <Link to={'/listingview/69'}><RoomCard /></Link>
+        <Link to={'/listingview/69'}><RoomCard /></Link>
+        <Link to={'/listingview/69'}><RoomCard /></Link>
         </div>
       </div>
     </div>
