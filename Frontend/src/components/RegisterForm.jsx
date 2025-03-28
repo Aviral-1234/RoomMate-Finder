@@ -1,12 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import axios from 'axios'
+import { Navigate } from "react-router-dom"
 
 const RegisterForm = () => {
 
-    const [fullname,setFullname] = useState(null);
-    const [username,setUsername] = useState(null);
+    const [fullName,setFullname] = useState(null);
+    const [userName,setUsername] = useState(null);
     const [email,setEmail] = useState(null);
     const [phoneNo,setPhoneNo] = useState(null);
     const [dob,setDob] = useState(null);
@@ -26,6 +27,7 @@ const RegisterForm = () => {
             setimage(URL.createObjectURL(file));
         }
     }
+    
 
     const handleConfirm = (e) => {
         const value = e.target.value;
@@ -38,6 +40,46 @@ const RegisterForm = () => {
             setMatch(true);
         }
     };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        if (password !== confirm) {
+            alert('Passwords do not match');
+            return;
+        }
+    
+        const formData = {
+            fullName,
+            userName,
+            email,
+            phoneNumber: phoneNo,
+            dob,
+            gender,
+            bio,
+            city,
+            state,
+            pincode,
+            password,
+            profileImage: image, // This will store the image URL (not the actual file)
+        };
+    
+        try {
+            const response = await axios.post('http://127.0.0.1:3000/api/auth/register', formData, {
+                headers: { 'Content-Type': 'application/json' }
+            });
+    
+            console.log('User registered successfully:', response.data);
+            alert('Registration successful!');
+            // Redirect or perform further actions here
+
+            // Redirect to the login page
+        return <Navigate to="/login" replace />;
+        } catch (error) {
+            console.error('Error registering the user:', error.response?.data || error.message);
+            alert('Registration failed! Please try again.');
+        }
+    };
     
 
   return (
@@ -45,15 +87,15 @@ const RegisterForm = () => {
         <div className='bg-zinc-900 w-1/2 px-5 py-10 rounded-lg'>
         <h1 className="bg-zinc-900 text-5xl mb-10">Register</h1>
         {/* <hr className="mb-10"/> */}
-            <form className='bg-zinc-900' action="">
+            <form className='bg-zinc-900' action="" onSubmit={handleSubmit}>
                 <h2 className='text-2xl font-bold bg-zinc-900'>Basic Details</h2>
                 <hr className='mt-2' />
                 <div className='basicDetails'>
                     <div className='mt-5 bg-zinc-900'>
                         <h3 className='bg-zinc-900 text-lg'>Full Name</h3>
-                        <input value={fullname} onChange={(e)=>{setFullname(e.target.value)}} className="bg-zinc-700 mt-2 w-full p-2 rounded-md outline-none" placeholder='Full Name' name='fullName' type="text"  />
+                        <input value={fullName} onChange={(e)=>{setFullname(e.target.value)}} className="bg-zinc-700 mt-2 w-full p-2 rounded-md outline-none" placeholder='Full Name' name='fullName' type="text"  />
                         <h3 className='bg-zinc-900 text-lg mt-3'>User Name</h3>
-                        <input value={username} onChange={(e)=>{setUsername(e.target.value)}} className="bg-zinc-700 mt-2 w-full p-2 rounded-md outline-none" placeholder='User Name' type="text"/>
+                        <input value={userName} onChange={(e)=>{setUsername(e.target.value)}} className="bg-zinc-700 mt-2 w-full p-2 rounded-md outline-none" placeholder='User Name' type="text"/>
                         <h3 className='bg-zinc-900 text-lg mt-3'>Email</h3>
                         <input value={email} onChange={(e)=>{setEmail(e.target.value)}} className="bg-zinc-700 mt-2 w-full p-2 rounded-md outline-none" placeholder='Enter your Email' type="email"/>
                         <h3 className='bg-zinc-900 text-lg mt-3'>Phone Number</h3>
@@ -87,11 +129,11 @@ const RegisterForm = () => {
                      <h3 className='bg-zinc-900 text-lg mt-3'>Select Your Gender - </h3>
                         <div className="flex gap-4 bg-zinc-900 mt-1">
                         <label className="bg-zinc-900 flex items-center gap-2">
-                        <input className="bg-zinc-900" type="radio" name="gender" value="male" checked={gender === "male"} onChange={(e)=>{setGender(e.target.value)}} />
+                        <input className="bg-zinc-900" type="radio" name="gender" value="Male" checked={gender === "Male"} onChange={(e)=>{setGender(e.target.value)}} />
                             <span className="bg-zinc-900"> Male </span>
                         </label>
                         <label className="flex items-center gap-2 bg-zinc-900">
-                        <input type="radio" name="gender" value="female" checked={gender === "female"} onChange={(e)=>{setGender(e.target.value)}} />
+                        <input type="radio" name="gender" value="Female" checked={gender === "Female"} onChange={(e)=>{setGender(e.target.value)}} />
                             <span className="bg-zinc-900"> Female</span>
                         </label>
                         </div>

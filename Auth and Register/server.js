@@ -1,4 +1,5 @@
 require('dotenv').config();
+const cors = require('cors');
 const express = require('express');
 const connectDB = require('./Database/db');
 const authRoutes = require('./Routes/auth-routes');
@@ -9,6 +10,7 @@ connectDB();
 
 app.use(express.json()); // For JSON data
 app.use(express.urlencoded({ extended: true })); // For form data
+app.use(cors());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/home", homeRoutes);

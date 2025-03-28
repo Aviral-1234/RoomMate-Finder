@@ -10,7 +10,7 @@ const  registerUser = async(req, res) => {
     try {
         // jo user enter karega wo data fetch karna hai sabse pehele
         // extract user information from our request body
-        const { fullName, userName, email, phoneNumber, dob, gender, bio, city, state, pincode, password } = req.body;
+        const { fullName, userName, email, phoneNumber, dob, gender, bio, city, state, pincode, password ,role} = req.body;
 
         // check if user is already exist in our database
         // if this username or email already exists
@@ -19,7 +19,7 @@ const  registerUser = async(req, res) => {
             //400 -> bad request from client side
             return res.status(400).json({
                 success : false,
-                message : 'User is already exists, try with different username or email.'
+                message: error.message || 'Some error occurred, try again'
             });
         }
         else {
