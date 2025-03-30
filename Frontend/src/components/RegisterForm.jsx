@@ -211,7 +211,7 @@ const RegisterForm = () => {
                     ) }
                     </div>
                     <div className="w-full flex justify-center bg-zinc-900">
-                    <input type="submit" value="Create Profile" className="bg-white text-black font-bold mt-5 px-10 py-3 rounded-md transition-tramsform hover:bg-transparent hover:text-white duration-300 hover:shadow-xl hover:scale-105 hover:border cursor-pointer" />
+                    <input type="submit" value="Create Profile" className="bg-transparent text-white border-2 border-white font-bold mt-5 px-10 py-3 rounded-md transition-tramsform hover:bg-[#f7971d] hover:text-black duration-300 hover:shadow-xl hover:scale-105 hover:border cursor-pointer" />
                     </div>
             </form>
             <h3 className='bg-zinc-900 mt-2 text-lg'>if you already have an account, <Link to={'/login'}> <span className='bg-zinc-900 text-blue-500 cursor-pointer hover:underline text-lg'>Login</span></Link></h3>

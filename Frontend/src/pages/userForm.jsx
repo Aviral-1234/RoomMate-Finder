@@ -6,7 +6,7 @@ import RegisterForm from '../components/RegisterForm'
 const userForm = () => {
   return (
     <div>
-        {/* <NavBar/> */}
+        <NavBar/>
         <RegisterForm/>
     </div>
   )

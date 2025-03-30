@@ -46,7 +46,7 @@ const NavBar = () => {
         <Link className='bg-black' to={'/'}>
           <img 
             className='h-[40px] bg-black rounded-md mt-2 transition-transform transition-shadow duration-500 
-                      hover:scale-105 hover:shadow-[0_0_15px_5px_rgba(253,224,71,0.6)] cursor-pointer' 
+                      hover:scale-105 hover:shadow-[0_0_15px_5px_rgba(247,151,29,0.6)] cursor-pointer' 
             src={logo} 
             alt="roomMate finder" 
           />
@@ -62,7 +62,7 @@ const NavBar = () => {
               height="40"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="currentColor"
+              stroke="#f7971d"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"

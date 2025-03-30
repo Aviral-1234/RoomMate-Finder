@@ -30,12 +30,12 @@ const HeroSection = () => {
       onMouseMove={handleMouseMove}
     >
       <div 
-        className="absolute pointer-events-none transition-opacity duration-100 opacity-60 bg-[#f7971d] rounded-full blur-3xl w-64 h-64" 
+        className="absolute pointer-events-none transition-opacity duration-100 opacity-40 bg-[#f7971d] rounded-full blur-[80px] w-96 h-96" 
         style={{ 
-          left: `${mousePosition.x - 128}px`, 
-          top: `${mousePosition.y - 128}px`,
+          left: `${mousePosition.x - 192}px`, 
+          top: `${mousePosition.y - 192}px`,
           zIndex: 0
-        }} 
+        }}
       />
       
       <div className="bg-transparent w-full max-w-7xl mx-auto  px-4 text-center text-white relative z-10">
