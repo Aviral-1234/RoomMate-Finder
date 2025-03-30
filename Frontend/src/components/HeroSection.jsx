@@ -1,23 +1,48 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import roomie from '../assets/home-roomie.svg'
 import homie from '../assets/home-homie.svg'
 
 const HeroSection = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef(null);
 
   const handleClick = () => {
     window.scrollTo({ top: 350, behavior: "smooth" });
   }
 
+  const handleMouseMove = (e) => {
+    if (sectionRef.current) {
+      const rect = sectionRef.current.getBoundingClientRect();
+      setMousePosition({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      });
+      // console.log(mousePosition.x, mousePosition.y);
+    }
+  }
+
   return (
-    <div className="pt-[90px] w-full bg-black py-12">
+    <div 
+      ref={sectionRef}
+      className="pt-[90px] w-full bg-black py-12 relative overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
+      <div 
+        className="absolute pointer-events-none transition-opacity duration-100 opacity-60 bg-[#f7971d] rounded-full blur-3xl w-64 h-64" 
+        style={{ 
+          left: `${mousePosition.x - 128}px`, 
+          top: `${mousePosition.y - 128}px`,
+          zIndex: 0
+        }} 
+      />
       
-      <div className="bg-black w-full max-w-7xl mx-auto bg-black px-4 text-center text-white">
-        <h1 className="bg-black text-white text-4xl font-bold mb-3">Find your Room Mate Now</h1>
-        <p className="bg-black text-xl mb-8">list, search & communicate</p>
+      <div className="bg-transparent w-full max-w-7xl mx-auto  px-4 text-center text-white relative z-10">
+        <h1 className="bg-transparent text-white text-4xl font-bold mb-3">Find your Room Mate Now</h1>
+        <p className="bg-transparent text-xl mb-8">list, search & communicate</p>
         
-        <div className="flex flex-col md:flex-row justify-center gap-6 bg-black">
+        <div className="flex flex-col md:flex-row justify-center gap-6 bg-transparent">
          {/* Need a roommate card */}
 
 <div className="bg-zinc-700 text-white rounded-lg p-6 flex items-center justify-between relative shadow-lg">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const Login = () => {
 
@@ -11,16 +12,20 @@ const Login = () => {
 
     const user = {userName,password};
 
-    const response = await fetch('http://127.0.0.1:3000/api/auth/login', {
-      method: 'POST',
+    const response = await axios.post('http://127.0.0.1:3000/api/auth/login', user, {
       headers: {
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(user)
+      }
     });
+    
 
-    const data = await response.json();
+    const data = await response.data;
     console.log(data);
+    if(data.success === true) {
+      alert("Login successful");
+      localStorage.setItem('token', data.accessToken);
+      window.location.href = '/';
+    }
   }
 
 return (
@@ -32,8 +37,8 @@ return (
                 
                 <div className='basicDetails'>
                     <div className='mt-5 bg-zinc-900'>
-                        <h3 className='bg-zinc-900 text-lg mt-3'>Email</h3>
-                        <input value={userName} onChange={(e)=>{setUserName(e.target.value)}} className="bg-zinc-700 mt-2 w-full p-2 rounded-md outline-none" placeholder='Enter your Email' type="text"/>
+                        <h3 className='bg-zinc-900 text-lg mt-3'>Username</h3>
+                        <input value={userName} onChange={(e)=>{setUserName(e.target.value)}} className="bg-zinc-700 mt-2 w-full p-2 rounded-md outline-none" placeholder='Enter your username' type="text"/>
                     </div>
                 </div>
                     <div className="password bg-zinc-900">

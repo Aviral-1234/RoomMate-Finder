@@ -7,6 +7,7 @@ import ListFormPage from './pages/ListingFormPage';
 import ListingViewPage from './pages/ListingViewPage';
 
 import './App.css';
+import UserProfile from './pages/UserProfilePage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/listform" element={<ListFormPage />} />
         <Route path="/listingview/:id" element={<ListingViewPage />} />
+        <Route path="/profile" element={<UserProfile/>  } />
       </Routes>
     </BrowserRouter>
   );
