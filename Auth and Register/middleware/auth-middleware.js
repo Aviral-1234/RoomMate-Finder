@@ -1,5 +1,6 @@
 // protect unautherized users to access the content of website
 const jwt = require('jsonwebtoken');
+const User = require('../models/user');
 
 const authMiddleware = (req, res, next) => {
     const authHeader = req.headers['authorization'];
@@ -17,6 +18,7 @@ const authMiddleware = (req, res, next) => {
     try {
         const secretKey = "your-secret-key";
         const decodedTokenInfo = jwt.verify(token, secretKey);
+        req.user =  User.findById(decodedTokenInfo).select("-password");
         console.log(decodedTokenInfo);
         req.userInfo = decodedTokenInfo;
         next();
