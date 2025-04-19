@@ -19,7 +19,7 @@ app.use("/api/home", homeRoutes);
 app.use("/api/rooms", ListRoutes);
 
 // api 
-app.use("/api/flats", flatRoutes);
+app.use("/api/flats", flatRoutes);  
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

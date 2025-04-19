@@ -55,7 +55,7 @@ const NavBar = () => {
         <input className='absolute ml-[24%] justify-center w-1/2 outline-none rounded-md p-2 bg-zinc-800 text-white' type="text" placeholder='start your search'/>
 
         {isLoggedIn ? (
-          <div className="relative profile-dropdown-container">
+          <div className="relative profile-dropdown-container bg-transparent">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"

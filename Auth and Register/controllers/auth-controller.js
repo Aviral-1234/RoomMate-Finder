@@ -134,17 +134,49 @@ const loginUser = async(req, res) => {
 
 const getProfile = async(req, res) => {
     try {
+        // Get user from req object (set by authMiddleware)
         const user = req.user;
+        // console.log(user)
+        
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found"
+            });
+        }
+        
+        // Create a user object without the password field
+        const userData = {
+            _id: user._id,
+            fullName: user.fullName,
+            userName: user.userName,
+            email: user.email,
+            phoneNumber: user.phoneNumber,
+            dob: user.dob,
+            profileImage: user.profileImage,
+            gender: user.gender,
+            bio: user.bio,
+            city: user.city,
+            state: user.state,
+            pincode: user.pincode,
+            role: user.role,
+            rooms: user.rooms,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt
+        };
+        console.log(userData);
+        // Return user data along with success message
         res.status(200).json({
-            success : true,
-            message : "User Profile Fetched Successfully",
+            success: true,
+            message: "User Profile Fetched Successfully",
+            user: userData
         });
-
-    }catch(error) {
-        console.log("Error : ", error);
+        
+    } catch(error) {
+        console.log("Error: ", error);
         res.status(500).json({
-            success : false,
-            message : 'Some error ocuured , try again'
+            success: false,
+            message: 'Some error occurred, try again'
         });
     }
 }
