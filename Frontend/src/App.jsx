@@ -1,24 +1,50 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
 import UserForm from './pages/userForm';
 import Login from './pages/LoginPage';
 import ListFormPage from './pages/ListingFormPage';
 import ListingViewPage from './pages/ListingViewPage';
+import UserProfile from './pages/UserProfilePage';
+import ProtectedRoute from './components/ProtectedRoute';
 
 import './App.css';
-import UserProfile from './pages/UserProfilePage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/Register" element={<UserForm />} />
+        {/* Public routes */}
+        <Route path="/register" element={<UserForm />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/listform" element={<ListFormPage />} />
-        <Route path="/listingview/:id" element={<ListingViewPage />} />
-        <Route path="/profile" element={<UserProfile/>  } />
+
+        {/* Protected routes - only accessible when logged in */}
+        <Route path="/" element={
+          <ProtectedRoute>
+            <HomePage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/listform" element={
+          <ProtectedRoute>
+            <ListFormPage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/listingview/:id" element={
+          <ProtectedRoute>
+            <ListingViewPage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/profile" element={
+          <ProtectedRoute>
+            <UserProfile />
+          </ProtectedRoute>
+        } />
+
+        {/* Redirect any unknown routes to home */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
