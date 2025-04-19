@@ -16,7 +16,7 @@ app.use(cors());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/home", homeRoutes);
-app.use("/api/room", ListRoutes);
+app.use("/api/rooms", ListRoutes);
 
 // api 
 app.use("/api/flats", flatRoutes);
