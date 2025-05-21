@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit2, FiMail, FiPhone, FiMapPin, FiCalendar, FiUser } from 'react-icons/fi';
-import defaultProfileImage from '../../assets/default-profile.jpg'; // Fallback image
+import defaultProfileImage from '../../assets/donna.jpeg'; // Fallback image
 
 const ProfileView = () => {
   const [user, setUser] = useState(null);

@@ -1,14 +1,15 @@
 const Room = require('../models/lsit-room');
 const cloudinary = require('../config/cloudinary');
-const User = require('../models/user');
-const user = require('../models/user');
+// const User = require('../models/user');
+// const user = require('../models/user');
 
 const createRoom = async(req, res) => {
     try {
 
         // console.log("✅ User ID:", req.user.id);
 
-        const existingRoom = await Room.findOne({owner : user.id});
+        const existingRoom = await Room.findOne({ owner: req.user.id });
+
         if(existingRoom) {
             return res.status(400).json({
                 success : true,

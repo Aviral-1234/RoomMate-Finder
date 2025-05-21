@@ -7,6 +7,7 @@ import ListFormPage from './pages/ListingFormPage';
 import ListingViewPage from './pages/ListingViewPage';
 import UserProfile from './pages/UserProfilePage';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminPage from './pages/AdminPage';
 
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
         {/* Public routes */}
         <Route path="/register" element={<UserForm />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<AdminPage />} />
 
         {/* Protected routes - only accessible when logged in */}
         <Route path="/" element={
